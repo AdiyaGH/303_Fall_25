@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{% block title %}Welcome to Adiya’s Blog{% endblock %}</h1>
+
+  <p><a class="btn btn-success" href="{{ url_for('create') }}">+ New Post</a></p>
+
+  {% if posts %}
+    <ul class="list-group">
+      {% for post in posts %}
+        <li class="list-group-item">
+          <a href="{{ url_for('post', id=post['id']) }}">{{ post['title'] }}</a>
+          <small class="text-muted float-right">#{{ post['id'] }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No posts yet. Click “+ New Post”.</p>
+  {% endif %}
+{% endblock %}
+
+

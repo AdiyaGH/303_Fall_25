@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{% block title %}{{ post['title'] }}{% endblock %}</h1>
+  <p class="text-muted">Post #{{ post['id'] }}</p>
+  <p>{{ post['content'] }}</p>
+
+  <a class="btn btn-outline-primary" href="{{ url_for('edit', id=post['id']) }}">Edit</a>
+  <a class="btn btn-secondary" href="{{ url_for('index') }}">Back</a>
+{% endblock %}
+
